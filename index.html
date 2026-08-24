@@ -753,15 +753,6 @@
     94% { transform: translate(-2px, -1px); opacity:0.8; }
     96% { transform: translate(1px, -1px); opacity:0; }
   }
-
-  .hamburger {
-    display: none;
-    background: none;
-    border: none;
-    color: var(--green);
-    font-size: 28px;
-    cursor: pointer;
-}
  
   /* MOBILE */
 @media (max-width: 768px) {
@@ -770,45 +761,47 @@
         padding: 12px 15px;
     }
 
-    .hamburger {
-        display: block;
-    }
-
     .nav-links {
         display: none;
-        position: absolute;
-        top: 64px;
-        left: 0;
-        width: 100%;
-
-        flex-direction: column;
-        gap: 0;
-
-        background: rgba(5, 5, 8, 0.97);
-        backdrop-filter: blur(20px);
-
-        border-bottom: 1px solid var(--border);
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-links li {
-        width: 100%;
-    }
-
-    .nav-links a {
-        display: block;
-        padding: 18px 20px;
-        border-bottom: 1px solid var(--border);
     }
 
     #pic {
         width: 34px;
         height: 34px;
     }
+
+    section {
+        padding: 80px 20px;
+    }
+
+    #hero {
+        padding: 120px 20px 60px;
+    }
+
+    .hero-scroll {
+        left: 20px;
+    }
+
+    .about-grid,
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
 }
+
 </style>
 </head>
 <body>
@@ -827,23 +820,15 @@
  
 <!-- NAV -->
 <nav>
-  <a href="#hero" class="nav-logo">
-    &lt;<span><img id="pic" src="me.jpeg"></span>/&gt;
-  </a>
-
-  <ul class="nav-links" id="navLinks">
+  <a href="#hero" class="nav-logo">&lt;<span><img id="pic" src="me.jpeg"></span>/&gt;</a>
+  <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#education">Education</a></li>
-    <li><a href="#certs">Certifications</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-
-  <button class="hamburger" id="hamburger">
-    ☰
-  </button>
 </nav>
  
 
@@ -1352,13 +1337,6 @@ const codeObserver = new IntersectionObserver(entries => {
 }, { threshold: 0.3 });
 const codeBlock = document.querySelector('.code-block');
 if (codeBlock) codeObserver.observe(codeBlock);
-
-  const hamburger = document.getElementById("hamburger");
-  const navLinks = document.getElementById("navLinks");
-
-  hamburger.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-  });
 </script>
 </body>
 </html>
