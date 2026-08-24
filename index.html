@@ -756,16 +756,52 @@
  
   /* MOBILE */
   @media (max-width: 768px) {
-    nav { padding: 16px 20px; }
-    .nav-links { display: none; }
-    section { padding: 80px 20px; }
-    #hero { padding: 120px 20px 60px; }
-    .hero-scroll { left: 20px; }
-    .about-grid, .contact-wrapper { grid-template-columns: 1fr; gap: 40px; }
-    .form-row { grid-template-columns: 1fr; }
-    .projects-grid { grid-template-columns: 1fr; }
-    footer { flex-direction: column; text-align: center; }
-  }
+    nav {
+        padding: 12px 15px;
+        gap: 15px;
+    }
+    .nav-links {
+        display: flex;
+        gap: 16px;
+        overflow-x: auto;
+        white-space: nowrap;
+        scrollbar-width: none;
+    }
+    .nav-links::-webkit-scrollbar {
+        display: none;
+    }
+    .nav-links a {
+        font-size: 0.65rem;
+    }
+    #pic {
+        width: 34px;
+        height: 34px;
+    }
+    section {
+        padding: 80px 20px;
+    }
+    #hero {
+        padding: 120px 20px 60px;
+    }
+    .hero-scroll {
+        left: 20px;
+    }
+    .about-grid,
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+}
 </style>
 </head>
 <body>
@@ -1166,7 +1202,7 @@
 </footer>
  
 <script>
-// CURSOR
+
 const cursor = document.getElementById('cursor');
 const trail = document.getElementById('cursorTrail');
 let mx = 0, my = 0, tx = 0, ty = 0;
@@ -1210,7 +1246,7 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 reveals.forEach(el => observer.observe(el));
  
-// TYPEWRITER in hero tag
+// TYPEWRITER 
 const tag = document.querySelector('.hero-tag');
 const tagText = '  Available for Opportunities';
 let tagI = 0;
@@ -1277,7 +1313,6 @@ submitBtn.addEventListener('click', async () => {
   submitBtn.disabled = false;
 });
  
-// NAV scroll indicator
 window.addEventListener('scroll', () => {
   const scrolled = window.scrollY / (document.body.scrollHeight - window.innerHeight);
   document.querySelector('nav').style.borderBottom = `1px solid rgba(0,255,136,${0.07 + scrolled * 0.2})`;
